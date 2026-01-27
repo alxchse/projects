@@ -1,0 +1,11 @@
+square 5
+skip
+rectangle 3 5
+skip
+skip
+rectangle 7 3
+square 3
+square 2
+square 1
+skip
+done

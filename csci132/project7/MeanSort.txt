@@ -1,0 +1,25 @@
+Testing using a random array of length 1000
+Sorting using mean sort...
+Elapsed time for array of length 1000: about 0.000415 seconds
+PLOT 1000 0.000415
+
+Testing using a random array of length 2000
+Sorting using mean sort...
+Elapsed time for array of length 2000: about 0.001044 seconds
+PLOT 2000 0.001044
+
+Testing using a random array of length 5000
+Sorting using mean sort...
+Elapsed time for array of length 5000: about 0.005319 seconds
+PLOT 5000 0.005319
+
+Testing using a random array of length 7000
+Sorting using mean sort...
+Elapsed time for array of length 7000: about 0.006499 seconds
+PLOT 7000 0.006499
+
+Testing using a random array of length 10000
+Sorting using mean sort...
+Elapsed time for array of length 10000: about 0.006667 seconds
+PLOT 10000 0.006667
+

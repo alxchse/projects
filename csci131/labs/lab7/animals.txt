@@ -1,0 +1,9 @@
+Pets I would like to have:
+7
+dogs 18
+cats 12
+rats 0
+frog 1
+yaks 35
+fish 9
+crab 1

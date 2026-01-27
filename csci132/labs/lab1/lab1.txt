@@ -1,0 +1,39 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+30 January 2023
+Lab 1 Text Doc
+
+1. class Student { public: ...}
+   Student();                       default constructor
+   Student(std::string n, int y);   constructor with name and year of graduation
+
+2. void addCourse(std::string courseName)
+   void printCourses(void) const
+   void printInfo(void) const
+   void setGradDate(int year)
+
+3. string name
+   int gradDate
+   array courses[6]
+   int numCourses
+
+4. "public" is a key word indicating that the class is open for anyone
+   access and use the methods within the file. "private" indicates that the methods 
+   and variables within it are not available for anyone else to use or edit outside 
+   of the class. "private" typically holds variables that should not be manipulated.
+
+5. The Student() and addCourse(std::string courseName) constructors both are stubs
+   as they contain information that allows the program to compile and run, though
+   not to its entire potential.
+
+6. It is called "s"
+
+7. The two-argument constructor is used to initialize the variable "s" because 
+   the parameters are necessary to hold the information about the Student
+
+8. The member conditions called are setGradDate(yr), addCourse(course), printInfo(), 
+   and printCourses()
+
+9. When I run register, it crashes saying "linker command failed with exit code 1"
+
+10. Got some help from Prof. Fitzsimmons and the TAs, my program is now running successful!

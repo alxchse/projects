@@ -1,0 +1,20 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+05 December 2022
+Project 5
+
+12/01
+Got bored and started the project on my own. Did some basic stuff, but not too much.
+Only made the timer, status box, and help box.
+
+12/02
+Went to professor Walsh's office hours for some advice on where to start with the project.
+I got a lot done during this time.
+
+12/05
+Worked on this project for a few hours alone in the library. I struggled with autoRevealCells
+and mouseClicked, but pretty much everything else was done.
+
+12/06
+Back at Professor Walsh's office hours. Worked mostly with Botamina, Meghan, Bridget, and Prof. Walsh obviously
+Finished up the essentials of the project and submitted. 

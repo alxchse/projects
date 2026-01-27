@@ -1,0 +1,12 @@
+John Von Neumann was a Hungarian-American mathematician, physicist,
+computer scientist, engineer and polymath. Von Neumann was generally
+regarded as the foremost mathematician of his time. 
+
+While consulting for the Moore School of Electrical Engineering at the
+University of Pennsylvania on the EDVAC project, von Neumann wrote an
+incomplete First Draft of a Report on the EDVAC, describing a computer
+architecture in which the data and the program are both stored in the
+computer's memory in the same address space. This architecture is the
+basis of most modern computer designs.
+
+[ excerpted from: https://en.wikipedia.org/wiki/John_von_Neumann ]

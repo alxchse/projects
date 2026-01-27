@@ -1,0 +1,15 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCI 131
+11/17/2022
+Project 4 Collaboration Log
+
+11/14 
+
+I went to Prof. Walsh's office hours in hopes to study for the exam and
+get an outline for the project. He threw out some ideas and I made a guideline for myself that night.
+
+11/17 
+
+Completed the project. Angela Loza helped me come up with the base cases for bucketFill, 
+since I was pretty lost. Once I got started, though, it was easy to finish. 

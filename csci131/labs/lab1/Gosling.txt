@@ -1,0 +1,22 @@
+James Gosling, a Canadian computer scientist, is best known for his
+invention of the Java programming language while working at Sun
+Microsystems in 1994. 
+
+So yes, the answer to question 2 is "James Gosling".
+
+To solve the next puzzle, look in the file named after the winner of
+the the Association for Computing Machinery (ACM) Turing Award for
+2008. This file is somewhere inside the "awards" directory. You can
+change into a directory by typing:
+
+   cd awards
+
+Then use a combination of commands like:
+
+    ls
+    cat someFile.txt
+    cd someDirectory
+
+If you get lost and need to start over, you can type `cd` by itself to
+get back to your home directory.
+

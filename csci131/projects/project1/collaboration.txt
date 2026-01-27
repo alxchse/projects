@@ -1,0 +1,14 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+08 September 2022
+Project 1
+
+09/08	Angela Loza, Botamina Girgis
+        We got started on the project and made a few variables, just to get ahead.
+
+09/27   Angela Loza, Brennan DeCourcey, Samantha Adams
+        After sitting in the lab for a few hours, we finally finished the project. I ran into many errors with the
+        url, which thankfully Sam came by to help me out. Lots of trial and error went into figuring out what was wrong,
+        but finally figuring it out felt really good. The map pops up perfectly and shows the distance from my
+        house to Athens, Greece.
+	

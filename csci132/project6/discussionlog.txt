@@ -1,0 +1,15 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+29 March 2023
+Project 6
+
+03/28
+
+I read over and created an outline for myself for this project and what
+I needed to do regarding the recursion.
+
+03/29
+
+Bridget and I worked together on the project for a few hours in the morning.
+Our code was working but the path refused to back track. We went to office
+hours with Prof. Fitzsimmons and fixed the issue and submitted. 

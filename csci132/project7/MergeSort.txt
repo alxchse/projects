@@ -1,0 +1,25 @@
+Testing using a random array of length 1000
+Sorting using merge sort...
+Elapsed time for array of length 1000: about 0.000336 seconds
+PLOT 1000 0.000336
+
+Testing using a random array of length 2000
+Sorting using merge sort...
+Elapsed time for array of length 2000: about 0.001506 seconds
+PLOT 2000 0.001506
+
+Testing using a random array of length 5000
+Sorting using merge sort...
+Elapsed time for array of length 5000: about 0.002451 seconds
+PLOT 5000 0.002451
+
+Testing using a random array of length 7000
+Sorting using merge sort...
+Elapsed time for array of length 7000: about 0.002512 seconds
+PLOT 7000 0.002512
+
+Testing using a random array of length 10000
+Sorting using merge sort...
+Elapsed time for array of length 10000: about 0.003976 seconds
+PLOT 10000 0.003976
+

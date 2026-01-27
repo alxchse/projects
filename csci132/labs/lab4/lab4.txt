@@ -1,0 +1,14 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCi 132
+24 February 2023
+Lab 4 Discussion Log
+
+19 February 2023
+
+In lab, I worked with Angela Loza, Bridget Thomson, Carol Yu, and Kieran
+Alexandro.  We finished up to the inOrder() function in ArrayQueue.cpp.
+
+24 February 2023
+
+Bridget and I worked together to finish the lab. 

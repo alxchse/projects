@@ -1,0 +1,152 @@
+void checkEmpty(ArrayStack<Card>& winPilePlayer, ArrayStack<Card>& drawPilePlayer, ArrayStack<Card>& winPileComp,
+    ArrayStack<Card>& drawPileComp);
+void battleRound(ArrayStack<Card>& winPilePlayer, ArrayStack<Card>& drawPilePlayer, ArrayStack<Card>& winPileComp, 
+    ArrayStack<Card>& drawPileComp, ArrayStack<Card>& prizePile);
+void askToStop(ArrayStack<Card>& winPilePlayer, ArrayStack<Card>& drawPilePlayer, ArrayStack<Card>& winPileComp, 
+    ArrayStack<Card>& drawPileComp, ArrayStack<Card>& prizePile);
+int calcWinner(ArrayStack<Card>& winPilePlayer, ArrayStack<Card>& drawPilePlayer, ArrayStack<Card>& winPileComp, 
+    ArrayStack<Card>& drawPileComp, ArrayStack<Card>& prizePile);
+
+int main() {
+    int numDealt;
+    ArrayStack<Card> winPilePlayer;
+    ArrayStack<Card> drawPilePlayer;
+    ArrayStack<Card> winPileComp;
+    ArrayStack<Card> drawPileComp;
+    ArrayStack<Card> prizePile;
+    Deck *theDeck = new Deck();
+        
+    // shuffle deck of cards
+    cout << "Shuffling cards... \n";
+    theDeck->shuffle();
+
+    // ask user for number of cards to be dealt
+    cout << "How many cards in each hand (not more than 26)? ";
+    cin >> numDealt;
+    if (numDealt == 0)
+        cout << "Please enter a number greater than zero: ";
+    if (numDealt > 26)
+        cout << "That's too many cards. Please pick a number less than 27: ";
+    cout << "Dealing " << numDealt << " cards to each player. \n";
+
+    // deal the cards to each player (computer first)
+
+    for (int i = 0; i < numDealt; i++){
+        drawPileComp.push(theDeck->dealCard());
+        drawPilePlayer.push(theDeck->dealCard()); 
+    }
+
+    battleRound(winPilePlayer, drawPilePlayer, winPileComp, drawPileComp, prizePile);
+    checkEmpty(winPilePlayer, drawPilePlayer, winPileComp, drawPileComp);
+
+}
+
+void battleRound(ArrayStack<Card>& winPilePlayer, ArrayStack<Card>& drawPilePlayer, ArrayStack<Card>& winPileComp, 
+    ArrayStack<Card>& drawPileComp, ArrayStack<Card>& prizePile) {
+
+    Card playerCard;
+    Card compCard;
+    Card prizeMoving;
+
+    if (drawPilePlayer.size() == 0 || drawPileComp.size() == 0)
+    
+
+    while (true) {
+        playerCard = drawPilePlayer.peek();
+        cout << "User has " << winPilePlayer.size() + drawPilePlayer.size() << " cards and draws " << playerCard.toString() << "\n";
+        compCard = drawPileComp.peek();
+        cout << "Computer has " << winPileComp.size() + drawPileComp.size() << " cards and draws " << compCard.toString() << "\n";
+
+        if (playerCard.getValue() > compCard.getValue()){                   // if player wins round
+            winPilePlayer.push(playerCard);
+            winPilePlayer.push(compCard);
+            cout << "User wins this round. \n";
+
+            if (!prizePile.isEmpty()) {                                     // move prizes if any
+                for (int i = 0; i < prizePile.size(); i++) {
+                prizeMoving = prizePile.peek();
+                winPilePlayer.push(prizeMoving);
+                }
+            }
+        } else if (compCard.getValue() > playerCard.getValue()) {           // if computer wins round
+            winPileComp.push(compCard);
+            winPileComp.push(playerCard);
+            cout << "Computer wins this round. \n";
+
+            if (!prizePile.isEmpty()) {                                     // move prizes if any
+                for (int i = 0; i < prizePile.size(); i++) {
+                prizeMoving = prizePile.peek();
+                winPileComp.push(prizeMoving);
+                }
+            }
+        } else if (playerCard.getValue() == compCard.getValue()) {          // in case of tie
+            prizePile.push(playerCard);
+            prizePile.push(compCard);
+            cout << "This round ends in a tie. \n";
+        }
+        askToStop(winPilePlayer, drawPilePlayer, winPileComp, drawPileComp, prizePile);
+    } 
+} // end of battleRound
+
+void checkEmpty(ArrayStack<Card>& winPilePlayer, ArrayStack<Card>& drawPilePlayer, ArrayStack<Card>& winPileComp, 
+    ArrayStack<Card>& drawPileComp) {
+    
+    Card cardMoving;
+
+    if (drawPilePlayer.isEmpty()) {
+        for (int i = 0; i < winPilePlayer.size(); i++){
+            cardMoving = winPilePlayer.peek();
+            winPilePlayer.pop();
+            drawPilePlayer.push(cardMoving);
+            
+        }
+    } else if (drawPileComp.isEmpty()) {
+        for (int i = 0; i < winPileComp.size(); i++){
+            cardMoving = winPileComp.peek();
+            winPileComp.pop();
+            drawPileComp.push(cardMoving);
+        }
+    }
+} // end checkEmpty
+
+void askToStop(ArrayStack<Card>& winPilePlayer, ArrayStack<Card>& drawPilePlayer, ArrayStack<Card>& winPileComp, 
+    ArrayStack<Card>& drawPileComp, ArrayStack<Card>& prizePile) {
+
+    string response;
+
+    cout << "Do you want to continue (y/n)? ";
+    cin >> response;
+
+
+    if (response == "y") {
+        cout << "\n";
+        battleRound(winPilePlayer, drawPilePlayer, winPileComp, drawPileComp, prizePile);
+    } if (response == "n") {
+        cout << "\n";
+        calcWinner(winPilePlayer, drawPilePlayer, winPileComp, drawPileComp, prizePile);
+    } if ((response != "y") || (response != "n")) {
+        cout << "Invalid answer.\n";
+        askToStop(winPilePlayer, drawPilePlayer, winPileComp, drawPileComp, prizePile);
+    }
+}
+
+int calcWinner(ArrayStack<Card>& winPilePlayer, ArrayStack<Card>& drawPilePlayer, ArrayStack<Card>& winPileComp, 
+    ArrayStack<Card>& drawPileComp, ArrayStack<Card>& prizePile) {
+    
+    int totCardsPlayer = winPilePlayer.size() + drawPilePlayer.size();
+    int totCardsComp = winPileComp.size() + drawPileComp.size();
+    int totPrizePile = prizePile.size();
+    
+    cout << "User has " << totCardsPlayer << " cards total. \n";
+    cout << "Computer has " << totCardsComp << " cards total. \n";
+    cout << "There are " << totPrizePile << " cards in the prize pile. \n";
+
+    if (totCardsPlayer > totCardsComp) {
+        cout << "User wins!";
+    } else if (totCardsComp > totCardsPlayer) {
+        cout << "Computer wins!";
+    }
+    return 0;
+}
+
+

@@ -1,0 +1,22 @@
+Alexandra Chase
+CSCI 132
+06 February 2023
+Lab 2 Discussion Log
+
+06 Febraury 2023
+
+Started the lab in class. I directly worked with Angela Loza, Bridget Thomson, and Carol Yu.
+I also got a lot of help from the TAs and Prof. Fitzsimmons regarding the vectors
+and parallel array sets. By the end of lab, my program was almost finished, but still
+had a few bugs.
+
+08 Febraury 2023
+
+I worked on the add() function within ParallelArraySet. Originally, the program was able
+to add a number twice. But after putting the 'return true' statement in the 'if' loop,
+the problem was resolved. However, not all integers in the sets were accounted for 
+when printing the union set.
+
+10 February 2023
+
+I finished the difference() function in test.cpp.

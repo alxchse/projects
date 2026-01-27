@@ -1,0 +1,38 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCI 132
+24 April 2023
+Lab 10 Discucssion Log
+
+I worked with Bridget, Carol, TAs Wesley and Jack, and Prof. Fitzsimmons on this lab.
+
+
+Output for an array of length 6:
+Testing Tree Sort for random array:
+       9 comparisons per sort, averaged across 100 sortings.
+      27 copies per sort, averaged across 100 sortings.
+
+Testing Tree Sort for already-ordered array:
+      15 comparisons per sort, averaged across 100 sortings.
+      33 copies per sort, averaged across 100 sortings.
+
+Testing Tree Sort for reverse-ordered array:
+      15 comparisons per sort, averaged across 100 sortings.
+      33 copies per sort, averaged across 100 sortings.
+
+Output for an array of length 25:
+Testing Tree Sort for random array:
+      97 comparisons per sort, averaged across 100 sortings.
+     172 copies per sort, averaged across 100 sortings.
+
+Testing Tree Sort for already-ordered array:
+     300 comparisons per sort, averaged across 100 sortings.
+     375 copies per sort, averaged across 100 sortings.
+
+Testing Tree Sort for reverse-ordered array:
+     300 comparisons per sort, averaged across 100 sortings.
+     375 copies per sort, averaged across 100 sortings.
+
+From this, it seems that tree sort is definitely not one of the most efficient programs. It is 
+interesting that both the reverse ordered arrays and already ordered arrays take the same
+amount of comparisons and copies. It seems that tree sort is most useful for random arrays. 

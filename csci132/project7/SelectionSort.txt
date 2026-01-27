@@ -1,0 +1,25 @@
+Testing using a random array of length 1000
+Sorting using selection sort...
+Elapsed time for array of length 1000: about 0.003887 seconds
+PLOT 1000 0.003887
+
+Testing using a random array of length 2000
+Sorting using selection sort...
+Elapsed time for array of length 2000: about 0.012917 seconds
+PLOT 2000 0.012917
+
+Testing using a random array of length 5000
+Sorting using selection sort...
+Elapsed time for array of length 5000: about 0.056144 seconds
+PLOT 5000 0.056144
+
+Testing using a random array of length 7000
+Sorting using selection sort...
+Elapsed time for array of length 7000: about 0.096519 seconds
+PLOT 7000 0.096519
+
+Testing using a random array of length 10000
+Sorting using selection sort...
+Elapsed time for array of length 10000: about 0.207467 seconds
+PLOT 10000 0.207467
+

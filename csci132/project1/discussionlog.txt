@@ -1,0 +1,27 @@
+Alexandra Chase
+CSCI 132
+Project 1
+04 February 2023
+Discusstion Log
+
+Started project and worked for a few hours, mostly establishing any missing variables, creating
+pre and post conditions, and outlining to myself what it is each program should do. The most difficult
+piece of the project was keeping track of the frequencies of each roll in computeHand. I used an array 
+to hold the frequencies originally, but the following if statements proved challenging. Everything else
+was nearly, if not completely finished. 
+
+06 February 2023
+
+I worked away at the 'if' statements in computeHand, but I couldn't find a way to compile the program
+without a warning. 
+
+07 February 2023
+
+My classmates Bridget, Carol, and I decided to go to office hours and finalize our projects. When I showed my errors
+to Carol, she suggested I only keep track of the two highest frequencies, rather than keeping my array.
+After I did this and cleaned up a few other errors with 'name' and computeHand, my program was finally 
+finished. 
+
+08 February 2023
+
+I added prologues to each of the files and submitted my project. 

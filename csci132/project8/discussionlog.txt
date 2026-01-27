@@ -1,0 +1,24 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCI 132
+April 26 2023
+Project 8
+Discussion Log
+
+4/25
+
+I read over the project outline while I was at work.
+
+4/26
+
+I went to TA office hours with Bridget, Carol, Haley, and Angela. We worked on the prime minister
+and print ancestors portions together. We got a solid outline done of everything we needed to do, but
+had a lot of trouble actually implementing the code. TA Jack helped us.
+
+4/27
+
+I worked with Bridget again on the lab for a few hours before the banquet. I got all of my code done but had
+issues deciphering between the TreeNode<Person> objects and where they belonged.
+
+I went to TA office hours with Andrew Sparks, Andres, and Brendan to finish the project. It took a lot of 
+trial and error but we finally got it done after a few hours. I also did the extra credit in the lab.

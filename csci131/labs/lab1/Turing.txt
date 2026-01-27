@@ -1,0 +1,22 @@
+Alan Turing is often considered to be the father of modern computer
+science. His work on code-breaking for the Brittish during World War
+II was depicted in the movie "The Imitation Game". Along with many
+other gay men, Turing was persecution by the Britsh government after
+the war, leading to his death in 1954 at age 41. Recently, the British
+government apologized for the "horrifying" and "utterly unfair"
+treatment he received, and in 2021 it honored Turing by making him the
+face of the UK's new 50-pound bank note.
+
+The answer to question 1 is "Alan Turing".
+
+Next, type this command in the terminal:
+
+  ls
+
+This will show you a listing of the files in your home directory. One
+of those files has the answer to the next question. Find it!
+
+Hint: Typing `cat somefile.txt` in the terminal (without quotes,
+followed as always by hitting `Enter`) will show the contents of that
+file.
+

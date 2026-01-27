@@ -1,0 +1,19 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCI 132
+20 March 2023
+Lab 6 Questions
+
+I worked with Bridget Thomson, Carol Yu, and Angie
+Loza on this lab.
+
+1. power1: For 3^32, there were 32 multiplications. For 3^19, there were 19 multiplications.
+   power2: For 3^32, there were 32 multiplications. For 3^19, there were 19 multiplications.
+   power3: For 3^32, there was 1 multiplication. For 3^19, there were 3 multiplications.
+
+2. power2: For 3^32, there were 32 recursive calls. For 3^19, there were 19 recursive calls.
+   power3: For 3^32, there were 6 recursive calls. For 3^19, there were 5 recursive calls.
+
+3. power1: ~ 12 seconds for 3^1000254
+   power2: ~ 0.2 seconds for 3^1000254
+

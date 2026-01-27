@@ -1,0 +1,54 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+11 April 2023
+Lab 8 Questions
+
+I worked with Carol and Angela on this lab. 
+
+First pass:
+Eva
+Tim
+Tom
+Kim
+Jim
+Jon
+Ann
+Ron
+Jan
+Dot
+Roy
+Guy
+Amy
+Kay
+
+Second pass:
+Jan
+Kay
+Tim
+Kim
+Jim
+Amy
+Ann
+Tom
+Ron
+Jon
+Dot
+Roy
+Guy
+Eva
+
+Third pass:
+Amy
+Ann
+Dot
+Eva
+Guy
+Jan
+Jim
+Jon
+Kay
+Kim
+Tim
+Tom
+Ron
+Roy

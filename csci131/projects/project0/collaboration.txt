@@ -1,0 +1,11 @@
+Discussion Log
+
+Name: Alexandra Chase
+Email: amchas26@g.holycross.edu
+Assignment: CSCI 131, Project 0 (ASCII Art)
+
+08/31	30 mins
+	Used some in-class lab time to start my project. Made the heading with the help of the TAs (who I 		can't remember the name of!)
+
+	2 hrs	http://www.ascii-art.de/ascii/mno/mushroom.txt, B. Decourcey, Prof. King
+	Looked at examples of other ASCII mushrooms online. Got some inspiration for what types of text 	would work with my art. Talked with my classmate Brennan about whether or not my design looked good. 		Originally, I came across over 20 errors in my programming, but after close inspection of my code, I 		realized most of the issues were due to my use of quotes (") and backslashes (\) in my art. Ran it 		through successfully. Presented my design to Prof. King, who congratulated me on finishing up early. 

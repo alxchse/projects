@@ -1,0 +1,5 @@
+   Alan   84   /* You might have heard of this guy. */
+  Grace	  72   /* But probably not her. */
+    Ada   76   /* She has a language named after her. */
+  Steve   32   /* Some of you are big fans. */
+   Bill    9   /* Maybe even him too. */

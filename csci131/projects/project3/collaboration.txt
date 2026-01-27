@@ -1,0 +1,24 @@
+Alexandra Chase
+10/30/2022
+CSCI 131
+Project 3: Huffman Project
+
+Started on 10/26
+    Went to Prof. Walsh office hours to get help with starting the project. He laid out some steps to take
+    and helped us with a few codes to get us headed in the right direction. I wrote them down in my computer
+    but didn't actually create the project files.
+
+10/30
+    I created the files and tried working a little bit but didn't get much done.
+    I finished main and did some of LookupCode, but didn't get close to finishing. I was really struggling 
+    with the decoding portion. 
+
+11/01
+    I worked with Cam and Botamina in the lab. They both pointed out some minor errors in my code,
+    but we mostly worked independently. I took a break, and finished up the project by myself from my
+    laptop that night. 
+
+11/02
+    Decompress.java was not working properly. I went to Prof. Walsh's office hours for extra help.
+    Turns out my code-table.txt was empty! Not sure why. Problem is solved, and program works as it should.
+    Submitted.

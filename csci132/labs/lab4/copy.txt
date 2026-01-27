@@ -1,0 +1,6 @@
+template<class ItemType>
+void ArrayQueue<ItemType>::print() const {
+   for (int i = 0; i < count; i++) {
+      cout << items[(front+i) % DEFAULT_CAPACITY] << " ";
+   }
+}
