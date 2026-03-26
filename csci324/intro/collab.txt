@@ -1,0 +1,52 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCI 324
+Scheme Lab 1: Intro Collaboration Doc
+
+27 January 2026
+I consulted chatGPT to ask how I print my lists on a new line, and it showed me println.
+I am having issues with #2. Since pear is in nested lists, the original program I wrote could not find the "pear" as follows:
+
+(define (findPear x)
+  (cond
+    [(null? x) #f]
+    [(equal? (car x) 'pear) '"pear found!"]
+    [(list? (car x)) (findPear (car x))]
+    [else (findPear (cdr x))]))
+
+and returns:
+  "Finding 'pear' in list1..."
+  "pear found!"
+  "Finding 'pear' in list2..."
+  #f
+  "Finding 'pear' in list3..."
+  #f
+
+28 January 2026
+After giving this some time to simmer, and doing a run through, I feel like the (car x) that follows
+equal? and list? is counterintuitive because we don't need to recurse when asking if the given element is equal or a list. So I switched that to an x. Still fails though. Now all return #f...
+
+After looking ahead in the slides and cosulting Claude on how to use or, I realize this does not behave the way I want. If the item is a list, I want to try the first element (car x), and if that returns #f, THEN try the rest (cdr x). That helped me a lot because I came up with the structure:
+
+[(list? x)
+     (or (findPear (car x))
+         (findPear (cdr x)))]
+     [else #f]
+
+Which ended up working out for all of the lists.
+
+29 January 2026
+I did the second part of the project well on my own. I ended up with this:
+
+(define (keep-first-n list n)
+  (cond
+    ((< n 0) (display "n must not be negative!"))
+    (or (= n 0)
+        (null? list) ('()))
+    (else (cons(car list))
+          (keep-first-n (cdr list) (- n 1)))))
+
+Although I couldn't figure out how to use the or. So I asked Bridget about how she used "or" and she said she didn't have to...
+Nevermind it's still not behaving, how I want so I will go to office hours and submit there.
+
+Office hours made me realize I did way too much for the first part. My apologies.

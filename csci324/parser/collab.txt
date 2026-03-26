@@ -1,0 +1,58 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCI 324
+Scheme Lab 3: RL Parser Collaboration Doc
+
+
+03 February 2026
+
+I am starting now on the third lab. Before I got too deep, I wanted to make sure that the recursion works to my advantage in automatically completing operations in reverse order, such as what we saw in the factorial example from class. You actually just confirmed it does, yay. So I have this done: 
+
+(define (parse input)
+  (cond
+    [(null? input) 0] ; check if the atom passed as input is an empty list, if so return zero
+    [(number? input)
+           (define value (input))] 
+    [(and (not number? input) (symbol? input)) 1] 
+    [(equal? '- input) parse(- value input)]
+    [(equal? '+ input) parse(+ value input)]
+    [(equal? '/ input) parse(/ value input)]
+    [(equal? '* input) parse(* value input)]
+    [(list? input)
+            [begin
+              (parse (car input))
+              (parse (cdr input))]]
+    )
+ )
+
+It comes with the error: begin (possibly implicit): the last form is not an expression in: (define value (input)), which I looked up and it seems that I can't define value to be the numerical value of input, which is silly. 
+
+04 February 2026
+
+I decided to continue my work in 219 Lab with Joe Koslosky and Andres Correa. We had a lot of fun! After showing my code to Prof.King, I realized my syntax was pretty bad. The idea was solid though. After much trial and error, we ended up with the following: 
+
+(define (parse input)
+  (cond
+    [(null? input) 0] ; check if the atom passed as input is an empty list, if so return zero
+    [(number? input) input] ; if the item is a number, return the number
+    [(symbol? input) 1] ; otherwise, it must be a letter, return a value of one
+    [(null? (cdr input)) (parse(car input))]
+    [(list? input) ; if the item is a list... 
+     (cond
+      [(equal? '- (cadr input)) (- (parse(car input)) (parse(cdr(cdr input))))]
+      [(equal? '+ (cadr input)) (+ (parse(car input)) (parse(cdr(cdr input))))]
+      [(equal? '/ (cadr input)) (/ (parse(car input)) (parse(cdr(cdr input))))]
+      [(equal? '* (cadr input)) (* (parse(car input)) (parse(cdr(cdr input))))])]))
+
+Finally, it worked. It returns: 
+
+5
+6
+18
+6
+6
+-8
+30
+
+Which is correct! The hardest part was getting the exact syntax, and having that weird function that didn't want to be operated on, which we solved by adding the symbol? input and null? (cdr input).
+Submitting now. 

@@ -1,0 +1,48 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCI 324
+Scheme Lab 4: Magic Rows Collaboration Doc
+
+
+07 February 2026
+
+I have been working on this for a while now, but I believe I've made steady progress.  I have a feeling some of these functions might come out ugly/overcomplicated though. 
+
+Obviously, we are supposed to use the sumAdd function we made in warmup to add the atoms in each row. Because this function was designed to handle nested lists, I am aware I must not pass the entire matrix as a parameter, but rather each row at a time. So for this reason, there must be a function to separate and pass each row to sumAdd. I am struggling with how to loop through each list to run sumAdd without iteration...
+
+  (define (magicRows matrix)
+    (cond
+      [(null? matrix) '()]
+      [else (car matrix)
+             (cons listOfSums((sumAdd(car matrix))]))
+
+Not sure where I should include the cdr here. It seems no one else is responding to me, so maybe I will send an email inquiry. Other than this, I feel pretty good about my other functions. I wrote my identical? checker and think it came out pretty well: 
+
+  (define (identical? lst)
+   (cond
+    [(null? lst) #t]        
+    [(= (car lst) (cadr lst)) 
+     (identical? (cdr lst))]
+    [else #f]))    
+
+Between these three functions, I imagine I will be all set. 
+
+Okay, coming back post-email. Your response was very helpful, because I realized that the function I need to run the cdr on is the magicRows function, not sumAdd. Adjusting that gave me:
+
+(define (magicRows matrix)
+    (cond
+      [(null? matrix) '()]     
+      [else (cons (sumAdd (car matrix))     
+             (magicRows (cdr matrix)))])) 
+
+Now it is time to run!
+
+My numRows is coming back with the following error:
+
+(define numRows (length(matrix)))
+application: not a procedure;
+ expected a procedure that can be applied to arguments
+  given: ((1 2 3 4 5) (2 3 4 5 1) (3 4 5 1 2) (4 5 1 2 3) (5 1 2 3 4))
+
+I changed it to (length(car matrix)), but that hasn't changed anything. Oh wait. It is a syntax error. 
+Wow I was expecting many more errors, but it seems it is working well. My output matches the desired submit. Yay. 

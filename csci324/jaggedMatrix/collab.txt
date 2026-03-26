@@ -1,0 +1,41 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCI 324
+Scheme Lab 5: Jagged Matrix Collaboration Doc
+
+
+07 February 2026
+
+I am now starting my jagged matrix function. It seems to be going well? My first error is in my sorted? Function:
+
+ (define (sorted? lst)
+    (cond
+      [(null? lst) #t]
+      [(null? (cdr lst)) #t]
+      [(if (or (< (car lst) (cadr lst)))
+               (= ((car lst) (cadr lst))))
+           (sorted? (cdr lst))]
+      [else #f]))
+
+<: contract violation
+  expected: real?
+  given: (1 2 3)
+
+I did ask Claude AI what the problem with the function was, and it was the if statement. So I removed the if altogether. Now I have an even crazier error:
+
+. begin (possibly implicit): the last form is not an expression in: (define (sorted? lst) (cond ((null? lst) #t) ((null? (cdr lst)) #t) ((or (< (car lst) (cadr lst))) (= ((car lst) (cadr))) (sorted? (cdr lst))) (else #f)) (define (sumColumn n matrix) (cond ((null? matrix) 0) ((< (length (car matrix)) n) 0) (else (+ (list-ref (car matrix) (- n 1)) (sumColumn n (cdr matrix)))))) (begin (newline) (display "__________________________________") (newline) (display matrix) (newline) (cond ((sorted? matrix) (begin (display "Every Row is in sorted order.") (newline) (display "The sum of column ") (display n) (display " is ") (display (sumColumn n matrix)))) (else (display "The rows are not sorted."))) (newline)))
+
+This turned out to be another syntax error. My program is now running, but coming back that every matrix is not sorted... Not sure why. 
+[(null? matrix) #f] was returning false every time the recursive calls ended. Changing to #t fixed it. 
+
+Now my program is almost complete, except I get an incorrect sum for the first question. The sum I am supposed to get is 7, but I get 3. 
+In going step by step through the problem, I realize that my original function:
+
+      [(null? matrix) 0]                         
+      [(< (length (car matrix)) n) 0]               
+      [else 
+       (+ (list-ref (car matrix) (- n 1))        
+          (sumColumn n (cdr matrix)))]))
+
+ends the recursive calls on sumColumn by returning 0 when the row is too short. I will change it so that it just skips that row entirely and moves on to the next. 
+Yay. My code is now working and giving the desired output. 

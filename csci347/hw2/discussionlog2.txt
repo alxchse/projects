@@ -1,0 +1,204 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCI 347 - Artificial Intelligence
+12 February 2026
+HW2 Minimax TicTacToe Discussion Log
+
+11 February 2026
+
+I finally started the homework and have been doing fairly well with it so far on my own. I will go to office hours
+to see if my Rubiks Cube example for number 3 goes well.
+Okay, no it doesn't, so I will research the Traveling Salesman problem I kept seeing on reddit. 
+Number four is making me feel crazy, so I'm going to skip it.
+
+Onto the code, I feel like I understood what we spoke about in class fairly well. However, I am struggling to
+understand why we need distinct Min and Max Value functions, when the one we did in class was conjoined.
+I'm going to ask Nano what he and the other boys did for reference.
+
+Nano hasn't started, but in talking with Sal and/or Bryan, he seems to think the functions are virtually 
+identical and only differ in their mathematical comparisons. I'm going to copy and paste what we did in class 
+and see if that helps me get started. 
+Conceptually, this makes sense. I am having trouble outlining what to do in terms of code, though. So I asked
+Claude for an outline using the following prompt:
+
+    "this is the code im given to start with. structurally, how do i go about incorporating what i need incorporating
+    the min and max value functions" 
+
+to which it responded: 
+
+    def MaxValue(current, prune, alpha, beta):
+        """
+        Returns the best move for X (maximizing player).
+        Returns: (best_move, best_value, nodes_generated)
+        """
+        
+        # Step 1: Check terminal test - if game is over, return None move and the score
+        
+        # Step 2: Initialize best_value to negative infinity, best_move to None, total nodes to 0
+        
+        # Step 3: Loop over all possible moves (i.e., empty squares '-')
+            
+            # Step 3a: Make a copy of the board and apply the move (place 'X')
+            
+            # Step 3b: Recurse into MinValue with the new board
+            #          MinValue returns (move, value, nodes)
+            #          Add nodes to your running total
+            
+            # Step 3c: If the returned value is better than best_value, update best_value and best_move
+            
+            # Step 3d: (if pruning) Update alpha, check if beta <= alpha, break if so
+        
+        # Step 4: Return best_move, best_value, total_nodes
+        return None, 0, 0
+
+
+    def MinValue(current, prune, alpha, beta):
+        """
+        Returns the best move for O (minimizing player).
+        Returns: (best_move, best_value, nodes_generated)
+        """
+        
+        # Step 1: Check terminal test - if game is over, return None move and the score
+        
+        # Step 2: Initialize best_value to positive infinity, best_move to None, total nodes to 0
+        
+        # Step 3: Loop over all possible moves (i.e., empty squares '-')
+            
+            # Step 3a: Make a copy of the board and apply the move (place 'O')
+            
+            # Step 3b: Recurse into MaxValue with the new board
+            #          MaxValue returns (move, value, nodes)
+            #          Add nodes to your running total
+            
+            # Step 3c: If the returned value is better than best_value, update best_value and best_move
+            
+            # Step 3d: (if pruning) Update beta, check if beta <= alpha, break if so
+        
+        # Step 4: Return best_move, best_value, total_nodes
+        return None, 0, 0
+
+This I found extremely helpful, because I don't want the code itself, but structurally knowing the ordering
+in which to implement everything has helped. So I am ending with: 
+
+    # Returns the best move for X, the value of that move, and the number of search nodes generated.
+    def MaxValue(current, prune, alpha, beta):
+    
+    score = TerminalTest(current)[0] # first arg of TerminalTest is the score
+    winner = TerminalTest(current)[1]  # second arg of TerminalTest is the winner
+
+    # if the current board is a terminal state, return None for the move, the final score, and 1 for nodes generated
+    if winner != '?': # checks winner since a 0 in first arg could be a tie
+        return None, score, nodesGenerated+1 # including terminal node in our count of nodes generated
+   
+    bestValue = -1*float("inf") # negative infinity since we are maximizing
+    bestMove = None
+    nodesGenerated = 0
+
+    return bestMove, bestValue, nodesGenerated
+
+    # Returns the best move for O, the value of that move, and the number of search nodes generated.
+    def MinValue(current, prune, alpha, beta):
+
+    score = TerminalTest(current)[0] # first arg of TerminalTest is the score
+    winner = TerminalTest(current)[1]  # second arg of TerminalTest is the winner
+
+    # if the current board is a terminal state, return None for the move, the final score, and 1 for nodes generated
+    if winner != '?': # checks winner since a 0 in first arg could be a tie
+        return None, score, nodesGenerated+1 
+
+    bestValue = float("inf") # positive infinity since we are minimizing
+    bestMove = None
+    nodesGenerated = 0
+
+    return bestMove, bestValue, nodesGenerated
+
+I will finish the rest tomorrow.
+
+12 February 2026
+
+I am continuing where I left off, except this time in talking to Bryan in class, I realized I don't need a separate pruning 
+function, which I thought that I would. He didn't tell me explicitly what he did, he just said it's easier than 
+I probably think. Hmm. I asked Alyssa too. She said she struggled. The pruning seems to be the hardest part to plan right now. 
+
+I was struggling with how to go about making a copy of the table each time I wanted to hypothetically make a move,
+but instead I am just going to make the move, pass it recursively, then undo it immediately after. Since technically
+we don't actually make the move until main().
+
+Coming back to say pruning is actually much easier than I thought. especially since the user decides if we prune or not.
+I think I am done. Let's see if it runs. 
+
+    -,-,-
+    -,-,-
+    -,-,-
+    Please enter your move in the format 0,0: 1,1
+    Traceback (most recent call last):
+    File "/home/stu/cl2026/amchas26/projects/csci347/hw2/tictactoe.py", line 184, in <module>
+        main()
+    File "/home/stu/cl2026/amchas26/projects/csci347/hw2/tictactoe.py", line 172, in main
+        board,nodesGenerated = MinimaxDecision(board, prune)
+    File "/home/stu/cl2026/amchas26/projects/csci347/hw2/tictactoe.py", line 141, in MinimaxDecision
+        return nextMove,nodesGenerated
+    NameError: name 'nodesGenerated' is not defined
+
+Nope, I have to go back and change something. 
+Here is my mistake:
+
+   if winner != '?': # checks winner since a 0 in first arg could be a tie
+        return None, score, numsGenerated+1 **** Here
+
+which doesn't make sense to me because once we find the terminal ending, shouldn't we include that as the last state and end it there?
+Actually after thinking about it with my PL brain, it seems that the 1 does make sense since we are recursively calling these functions until we reach a terminal state. 
+So really, this is the first node generated and we add the rest to nodesGenerated recursively. This makes sense, but I don't know what variable to put there now?
+I asked Nano what he did, and he said he just put a 1. So I will try that. Okay it works. 
+
+Now I get the error: 
+
+    Please enter your move in the format 0,0: 1,1
+    0
+    Traceback (most recent call last):
+    File "/home/stu/cl2026/amchas26/projects/csci347/hw2/tictactoe.py", line 184, in <module>
+        main()
+    File "/home/stu/cl2026/amchas26/projects/csci347/hw2/tictactoe.py", line 175, in main
+        score,winner = TerminalTest(board)
+    File "/home/stu/cl2026/amchas26/projects/csci347/hw2/tictactoe.py", line 23, in TerminalTest
+        for i in range(len(board)):
+    TypeError: object of type 'NoneType' has no len()
+
+which doesnt make sense to me... since this wasn't an error in my code? I don't see anywhere in here or main where I can define the object type for board. 
+Nano said he had to change his MinimaxDecision... I don't like this idea. So I will surrender and ask Claude. 
+
+    "my completed code is attached but i get the error:
+    Please enter your move in the format 0,0: 1,1
+    0
+    Traceback (most recent call last):
+    File "/home/stu/cl2026/amchas26/projects/csci347/hw2/tictactoe.py", line 184, in <module>
+        main()
+    File "/home/stu/cl2026/amchas26/projects/csci347/hw2/tictactoe.py", line 175, in main
+        score,winner = TerminalTest(board)
+    File "/home/stu/cl2026/amchas26/projects/csci347/hw2/tictactoe.py", line 23, in TerminalTest
+        for i in range(len(board)):
+    TypeError: object of type 'NoneType' has no len()"
+
+To which it responded: 
+
+    This error means MinimaxDecision is returning None as the board instead of the updated board. Look at your main():
+
+        board, nodesGenerated = MinimaxDecision(board, prune)
+    
+    But MinimaxDecision only returns (nextMove, nodesGenerated) — it never applies the move to the board and returns it! You need to apply the move in main() after getting it back.
+    
+        # WRONG - MinimaxDecision doesn't return a board
+        board, nodesGenerated = MinimaxDecision(board, prune)
+
+        # CORRECT - get the move, then apply it yourself
+        nextMove, nodesGenerated = MinimaxDecision(board, prune)
+        board[nextMove[0]][nextMove[1]] = 'O'
+        print(nodesGenerated)
+
+Okay, I am glad I asked it this because I would have never figured that out on my own. I'm going to change this and see if it runs. 
+Yay! Finally it is working. Yipeeeee.
+Realizing now I still haven't done number four. I'm going to send you an email about it now. 
+
+
+
+                                                                                                                                                                                               

@@ -1,0 +1,39 @@
+Alexandra Chase
+amchas26@g.holycross.edu
+CSCI 324
+Scheme Lab 2: Warmup Collaboration Doc
+
+
+29 January 2026
+
+I started early and ended up with this as my beginning code:
+
+(define (sumAdd lst)
+  (cond
+    [(null? lst) 0]                                         ; if list is empty, return 0 for sum
+    [(number? (car lst)) (+ (sumAdd(cdr lst)) (car lst))])) ; if the first item in the list is a number, then add that to the recursion through the rest of the list
+    [(list? (car lst)) (sumAdd (car lst))]                  ; if first item in list is another list, recurse into that list
+ 						 	    ; theres no other cases that matter
+
+(sumAdd '(4 5 ((44 31 5) ()) x ((((10))) (5 (5))) 0 1))
+(sumAdd '87)
+
+Which came back with an error since "number? (car lst)" calls car on an atom that isn't necessarily ALWAYS going to be a list. So I had to retrace my steps and account for that. The same goes for list? (car lst).
+
+After changing that, I shortly realized this meant I was returning (car lst) in both instances as well. Which is not what we want... If the atom is a number, we want to return that exact number. So I had to change the return value from the logic statement to just lst. 
+This left be troubled since I didn't know where to put the recursion statement for the cdr of the list now. I originally had recursed into the car within the list? condition, but nowhere did it say (cdr lst). 
+
+02 February 2026
+
+I spoke with Bridget a bit. I asked which conditional she put the recursion statement in. We talked it our eventually agreed to put it in the list statement, which didn't make sense to me given what I'd started with, but she put it in a way that was easy to figure out. If the atom is a list, you want to recurse into BOTH the front AND second half of the list to see if there are any numbers. That helped me come up with what I ended up with finally, which was:
+
+(define (sumAdd lst)
+  (cond
+    [(null? lst) 0]                              ; if atom is an empty list, return 0 for sum
+    [(number? lst) lst]                          ; if the atom is a number, return the number to be added at the end
+    [(list? lst)                                 ; if the atom is a list, first recurse through the first item 
+     (+ (sumAdd (car lst)) (sumAdd (cdr lst)))]  ; then recurse through the rest of the list
+    [else 0]))
+
+
+
