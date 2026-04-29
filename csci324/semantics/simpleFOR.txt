@@ -1,0 +1,17 @@
+0: b := 20
+1: read_integer b, 0
+2: read_integer b, 1
+3: contents b, 2 := contents b, 0
+4: r1 := contents b, 2
+5: r2 := contents b, 1
+6: r3 := r2 < r1
+7: pc := 14 if r3
+8: write r1
+9: write r2
+10: r4 := 1
+11: r5 := r1 + r4
+12: contents b, 2 := r5
+13: pc := 4
+14: r6 := contents b, 0
+15: write r6
+16: halt

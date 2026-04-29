@@ -1,0 +1,31 @@
+---- BEGIN SUBMISSION user:amchas26 class:csci324 time:Wed Mar 25 16:46:29 2026
+prog: Sep 28 2022 22:51:50 /home/fac/csci324/bin/submit
+host: mathcs5
+uid: 655080
+cwd: /home/stu/cl2026/amchas26/projects/csci324/HWsemantics
+command line: /home/fac/csci324/bin/submit SemanticsHW general.txt gui.pl sim simpleFOR.txt specific1.txt specific2.txt tests
+Preparing to submit files on Wed Mar 25 16:46:29 2026.
+Course: csci324
+Assignment: HWsemantics
+NOTICE: Submission directory /home/stu/cl2026/amchas26/projects/csci324/HWsemantics has inappropriate rwxr-xr-x access.
+WARNING: 'SemanticsHW' could not be accessed.
+  No such file or directory.
+  This item will be ignored and not included in the submission.
+WARNING: 'tests' is a directory.
+  Only regular files can be submitted.
+  This item will be ignored and not included in the submission.
+
+This submission includes 6 files:
+  1. general.txt      1193 bytes (extra file, last modified 5 seconds ago, Wed Mar 25 16:46:24 2026)
+  2. gui.pl          10759 bytes (extra file, last modified 2.7 hours ago, Wed Mar 25 14:06:03 2026)
+  3. sim             71568 bytes (extra file, last modified 2.7 hours ago, Wed Mar 25 14:05:46 2026)
+  4. simpleFOR.txt     303 bytes (extra file, last modified 53.5 minutes ago, Wed Mar 25 15:52:58 2026)
+  5. specific1.txt     185 bytes (extra file, last modified 65.4 minutes ago, Wed Mar 25 15:41:04 2026)
+  6. specific2.txt     246 bytes (extra file, last modified 46.5 minutes ago, Wed Mar 25 16:00:01 2026)
+
+
+SUCCESS: Submitted 6 new files for HWsemantics.
+  You can review this submission, and all previous submissions, by going to
+  ~/submissions-csci324-spring-2026 in your home directory.
+---- END SUBMISSION
+

@@ -1,0 +1,19 @@
+---- BEGIN SUBMISSION user:amchas26 class:csci347 time:Thu Mar 12 11:31:04 2026
+prog: Feb 18 2025 22:48:08 /home/fac/csci347/bin/submit
+host: logos.holycross.edu
+uid: 655080
+cwd: /home/stu/cl2026/amchas26/projects/csci347/hw3
+command line: /home/fac/csci347/bin/submit hw3
+Preparing to submit files on Thu Mar 12 11:31:04 2026.
+Course: csci347
+Assignment: hw3
+
+This submission includes 1 file:
+  1. rooks.py    2244 bytes (your source code, required, last modified 2.5 minutes ago, Thu Mar 12 11:28:32 2026)
+
+
+SUCCESS: Submitted 1 new file for hw3.
+  You can review this submission, and all previous submissions, by going to ~/submissions-csci347-Spring-2026 in your home
+  directory.
+---- END SUBMISSION
+

@@ -1,0 +1,97 @@
+Alexandra Chase and Elios Hoxholli
+amchas26@g.holycross.edu
+CSCI 347
+30 March 2026
+Project 2: Logic Project
+
+03/21 
+
+Today we started the project. Elios wrote much of the BFS and the parsing of the puzzle from the 2D grid. 
+We also had our meeting with Prof. Fitzsimmons in office hours to figure out how our constraints should look,
+and we came to the conclusion that 2/3 of the constraints we need are from the past homework. 
+The only other portion we need is the constraint restricting the stars from being diagnal from each other, but in talking to Nano, I figured out it's just NOT (x-1) and (x+1) of (y-1) and (y+1).
+We also discussed how the graph is parsed and why it is essential that the loop goes through every two characters rather than one. 
+Since the walls | are interpreted as characters, regardless of the fact that we don't want to consider them. 
+
+03/23
+
+I went to office hours and worked on the project while in Prof. Fitzsimmmons office. I asked whether or not we needed 
+a separate function for getChar or if we could just use the array access from the 2D grid. 
+I also realized that an n x n grid actually has 2n+1 characters per row and column, which helped with the math a lot. 
+
+03/25 
+
+I worked on our project some more and wrote our SAT encoder and solver with the help of Claude. At first, I started with the function to encode the constraints as only one function.
+I also knew from previous meetings with Prof. Fitzsimmons that formulating the constraints was also similar to what we had been doing 
+in our past homeworks. 
+
+For formulating the constraints, I originally did not realize that we needed to make and apply a list of individualized constraints before 
+completing the problem. I essentially just had this: 
+
+    for r in range(n):  
+        for c in range(n):
+            # for each cell, check all 8 surrounding cells (including diagonals)
+            for dr in [-1, 0, 1]: 
+                for dc in [-1, 0, 1]:
+                    # skip the cell itself (dr=0, dc=0) since we only want to check adjacent cells
+                    if dr == 0 and dc == 0:
+                        continue
+                    # calculate the coordinates of the adjacent cell
+                    r2, c2 = r + dr, c + dc
+                    # check if the adjacent cell is within bounds of the grid
+                    if 0 < r2 < n and 0 < c2 < n:
+                        cnf.append([-convert2SAT(r, c, n), -convert2SAT(r2, c2, n)])
+
+So I asked Claude: 
+
+    why can i not use the three general constraints i have formulated to encode
+
+To which it responded: 
+
+    Good question. Each constraint is applied in different loops:
+
+    Row loop
+    pythonfor r in range(n):
+        add_exactly_k([var(r, c, n) for c in range(n)])
+    For each row, you gather all cells in that row and say exactly k must be stars. You need one constraint per row, so you loop over rows and fix r while varying c.
+
+    Column loop
+    pythonfor c in range(n):
+        add_exactly_k([var(r, c, n) for r in range(n)])
+    Same idea but now you fix c and vary r. You can't combine this with the row loop because a row constraint and a column constraint are about completely different groups of cells — row 0 is [(0,0), (0,1), ...] while column 0 is [(0,0), (1,0), ...]. They just happen to share the same loop structure.
+
+    Region loop
+    pythonfor region in regions:
+        lits = [var((r-1)//2, (c-1)//2, n) for r, c in region]
+        add_exactly_k(lits)
+    Same idea again — one constraint per region. But regions are irregular shapes found by BFS, not neat rows or columns, so the cells in each group are just whatever BFS collected.
+
+So that certainly helped me get the encoding function together. It also told me that I need to check my < vs. <= 
+and suggested I add the following line to avoid adding duplicate constraints:
+    
+    if (r, c) < (r2, c2):
+        cnf.append([-convert2SAT(r, c, n), -convert2SAT(r2, c2, n)])
+
+For the solver I started with the following before asking Nano what he used for syntax to call the PySAT solver.
+
+    for r in range(n):
+        for c in range(n):
+            convert2SAT(r, c, n)
+            stars.add((r, c))
+        return stars
+    else:
+        return None
+
+Once again I wouldn't have gotten the syntax without help, so that was nice. 
+
+03/26
+
+Today I wrapped up with the print solution function, which was honestly pretty similar to what Elios had 
+already written for checking the regions. The core difference was that I had to convert the stars back to their 
+original grid coordinates before printing them. 
+
+I tested our code and everything is working as it should! Very exciting yay. We will work on the 
+discussion tomorrow. Oh and I will also have Claude help with the README too. 
+
+03/27
+Worked on the writeup description of problem and the discussion of the implementation.

@@ -1,0 +1,23 @@
+---- BEGIN SUBMISSION user:amchas26 class:csci347 time:Thu Feb 12 20:22:23 2026
+prog: Feb 18 2025 22:48:08 /home/fac/csci347/bin/submit
+host: logos.holycross.edu
+uid: 655080
+cwd: /home/stu/cl2026/amchas26/projects/csci347/hw2
+command line: /home/fac/csci347/bin/submit tictactoe discussionlog2.txt tictactoe.py
+WARNING: Directory name doesn't match project name.
+    You are in a directory named "hw2" while submitting tictactoe.  Normally
+    you should be in a directory named "tictactoe" while  submitting this
+    project.  This submission may not work properly.
+Preparing to submit files on Thu Feb 12 20:22:23 2026.
+Course: csci347
+Assignment: tictactoe
+
+This submission includes 2 files:
+  1. tictactoe.py         7010 bytes (your source code, required, last modified 73.9 minutes ago, Thu Feb 12 19:08:28 2026)
+  2. discussionlog2.txt   9942 bytes (extra file, last modified 84 seconds ago, Thu Feb 12 20:20:59 2026)
+
+
+SUCCESS: Submitted 2 new files for tictactoe.
+  You can review this submission, and all previous submissions, by going to ~/submissions-csci347-Spring-2026 in your home directory.
+---- END SUBMISSION
+

@@ -1,0 +1,23 @@
+---- BEGIN SUBMISSION user:amchas26 class:csci324 time:Tue Apr 28 11:03:32 2026
+prog: Sep 28 2022 22:51:50 /home/fac/csci324/bin/submit
+host: logos.holycross.edu
+uid: 655080
+cwd: /home/stu/cl2026/amchas26/projects/csci324/prolog
+command line: /home/fac/csci324/bin/submit prolog .
+Preparing to submit files on Tue Apr 28 11:03:32 2026.
+Course: csci324
+Assignment: prolog
+WARNING: '.' is a directory.
+  Only regular files can be submitted.
+  This item will be ignored and not included in the submission.
+
+This submission includes 2 files:
+  1. answers.pdf   185459 bytes (required, last modified 34 seconds ago, Tue Apr 28 11:02:58 2026)
+  2. Question.pro     715 bytes (required, last modified 14.9 hours ago, Mon Apr 27 20:12:27 2026)
+
+
+SUCCESS: Submitted 2 new files for prolog.
+  You can review this submission, and all previous submissions, by going to ~/submissions-csci324-spring-2026 in
+  your home directory.
+---- END SUBMISSION
+

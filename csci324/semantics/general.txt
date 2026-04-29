@@ -1,0 +1,43 @@
+#1 General Loop:
+    pc := <loop address> if <expr>
+    pc := <last address>
+loop: 
+    <stmtList>
+    pc := <loop address>
+last:
+    <stmtList>
+end:
+    [...]
+
+#2 Weakest Precondition:
+
+a. z := 5 * p - 4 {z <= 21}
+    wp (5 * p - 4, z <= 2)
+    (z<=21) [z := 5 * p - 4] we substitute 5 * p - 4 for z
+    5 * p - 4 <= 21
+    add 4 to both sides
+    5 * p <= 25
+    divide by 5 on both sides
+    p <= 5
+
+b. x := (x - 1) * (x + 4) {x = 0}
+    wp (x := (x - 1) * (x + 4), x = 0)
+    (x = 0) [x := (x - 1) * (x + 4)] we substitute (x - 1) * (x + 4) for x
+    0 := (x - 1) * (x + 4) 
+    take first portion (x - 1) = 0
+    x = 1
+    OR take second portion (x + 4) = 0
+    x = -4
+
+c. m := m - 2; n := n + m {n - m = 10}
+    wp (m := m - 2; n := n + m, n - m = 10)
+    so S1 = (m := m - 2) and S2 = (n := n + m) 
+    wp (m := m - 2, wp (n := n + m, n - m = 10))
+    wp (n := n + m, n - m = 10) solve this first
+    (n - m = 10) [n := n + m] substitute m + m for n
+    (n + m) - m = 10 resolves to
+    n = 10
+    wp (m := m - 2, n := 10) now we can solve this!
+    (n := 10) [m := m - 2] substitute m - 2 for m 
+    but there is no place to substitute for m... so weakest precondition remains n = 10
+

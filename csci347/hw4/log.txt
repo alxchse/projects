@@ -1,0 +1,19 @@
+---- BEGIN SUBMISSION user:amchas26 class:csci347 time:Wed Apr  1 20:00:12 2026
+prog: Feb 18 2025 22:48:08 /home/fac/csci347/bin/submit
+host: logos.holycross.edu
+uid: 655080
+cwd: /home/stu/cl2026/amchas26/projects/csci347/hw4
+command line: /home/fac/csci347/bin/submit hw4
+Preparing to submit files on Wed Apr  1 20:00:12 2026.
+Course: csci347
+Assignment: hw4
+
+This submission includes 1 file:
+  1. question5.pl  1106 bytes (your source code, required, last modified 3.9 minutes ago, Wed Apr  1 19:56:16 2026)
+
+
+SUCCESS: Submitted 1 new file for hw4.
+  You can review this submission, and all previous submissions, by going to ~/submissions-csci347-Spring-2026 in your
+  home directory.
+---- END SUBMISSION
+
