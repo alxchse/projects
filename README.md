@@ -1,4 +1,4 @@
-All of these folders contain information and data from my past coursework in my undergrad CS major at Holy Cross.  
+## All of these folders contain information and data from my past coursework in my undergrad CS major at Holy Cross. ##
 For reference, I will share the course codes:
 
 131 - Intro to Programming (Fall 2022)  
@@ -14,3 +14,4 @@ For reference, I will share the course codes:
 347 - Artificial Intelligence (Spring 2026)  
 
 Feel free to snoop and provide feedback!
+mail: alexchase004@gmail.com
