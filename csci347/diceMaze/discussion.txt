@@ -1,0 +1,257 @@
+Alexandra Chase and Elios Hoxholli
+amchas26@g.holycross.edu,
+CSCI 347 Artificial Intelligence
+Project 1: A* Dice Maze Collaboration Doc
+February 13, 2026
+
+04 February 2026
+
+Elios and I met briefly for lunch to try and begin our formulation of the problem. We struggled with conceptulaizing it for a while, so we decided to go to office hours. While in office hours, we discussed what our heuristics could be in much detail. We realized that it would be easier to start with Manhattan distance and build up from there. We also had trouble with setting up our github repo, so we got that squared away in office hours as well. Lastly, we realized that the mazes have to be separated into different files. This made the concept of reading in the files much easier. (That is partially why I argued for a Maze Class I am realizing later on...)
+
+05 February 2026
+
+We started working on the actual code for the project. First, we built a dice class that holds the faces of each side of the dice. Because we want to keep our program relatively simple, we started only with two face-fetching functions, get top and get north. Every roll returns the new faces of the dice. 
+
+06 February 2026
+
+I started working on the Maze class. From my time in office hours, making a 2D representation of the Maze for mutability would have been sufficient, but having the helper functions within the class helps me sort my thoughts, at least for now. Claude helped me read in the maze.txt file. I have the initialization done along with two helper functions, printMaze and isMoveValid. Prof. Fitzsimmons seems to think the isMoveValid function along with the obstacle set are unnecessary, but this too helps me sort my thoughts. It may need adjustment later. 
+
+09 February 2026
+
+Elios and I met again and worked on how we were going to formalize the states and the Nodes. We began by recognizing that the Nodes will hold a lot more information than the states. The states need to be comparable, but can exist in different nodes. We decided that the states will contain tuples of (row, col, dice) where row and col are coordinates and dice is the current orientation of the dice. This will make engaging with the Dice class we already defined much easier. We decided the nodes will hold state, parent, action (the move taken to get here), gCost, hCost, and fCost. gCost and hCost are necessary to calculate fCost for each node, which will decide how the frontier pqueue is sorted. 
+
+We decided that we were going to use the Manhattan distance heuristic spoken about in class, since it is very simple to calculate and admissible. We then decided to implement a slightly more complicated heuristic. This one will take into account the orientation of the dice and add a penalty of +1 move should there not be a 1 on top. This is because the player will have to rotate the dice at LEAST one more time to not only reach the goal state, but to have a 1 on top as well. Elios made the great point that it would actually be at least TWO moves, but to play it safe, we implemented just +1. The code for these was relatively simple. 
+
+11 February 2026
+
+Elios and I met again and discussed how we were going to approach the rest of the project. I was pretty stumped on what else we needed, besides the actual search algorithm obviously. I fed what we had already done to Claude and asked it to give a STRUCTURE of what we should do next. It returned this: 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+# =============================================================================
+# STATE CLASS - Represents a state in the search space
+# =============================================================================
+
+class State:
+    """
+    Represents a state: position in maze + die orientation.
+    """
+    
+    def __init__(self, row: int, col: int, die: Die):
+        """
+        Args:
+            row: Row position in maze
+            col: Column position in maze
+            die: Die object with current orientation
+        """
+        # TODO: Store position and die
+        pass
+    
+    def __eq__(self, other):
+        """Check if two states are equal."""
+        # TODO: Implement
+        pass
+    
+    def __hash__(self):
+        """Make State hashable."""
+        # TODO: Implement
+        pass
+    
+    def __repr__(self):
+        """String representation."""
+        # TODO: Implement
+        pass
+
+# =============================================================================
+# A* SEARCH ALGORITHM
+# =============================================================================
+
+class SearchNode:
+    """
+    Node in the search tree for A* algorithm.
+    """
+    
+    def __init__(self, state: State, parent=None, action: str = None, 
+                 g_cost: int = 0, h_cost: int = 0):
+        """
+        Args:
+            state: Current state
+            parent: Parent SearchNode
+            action: Action taken to reach this node
+            g_cost: Cost from start to this node
+            h_cost: Heuristic estimate from this node to goal
+        """
+        # TODO: Store all parameters
+        # TODO: Calculate f_cost = g_cost + h_cost
+        pass
+    
+    def __lt__(self, other):
+        """Comparison for priority queue (lower f_cost is better)."""
+        # TODO: Compare f_cost values
+        pass
+    
+    def __eq__(self, other):
+        """Equality based on state."""
+        # TODO: Implement
+        pass
+
+
+def astar_search(initial_state: State, maze: Maze, heuristic_func) -> Tuple[List[State], int, int]:
+    """
+    Perform A* search to find path from initial state to goal.
+    
+    Args:
+        initial_state: Starting state
+        maze: Maze object with goal test and successor function
+        heuristic_func: Heuristic function to use
+    
+    Returns:
+        Tuple of (path, nodes_generated, nodes_expanded)
+        - path: List of states from start to goal (empty if no solution)
+        - nodes_generated: Number of nodes added to frontier
+        - nodes_expanded: Number of nodes removed from frontier and processed
+    """
+    # TODO: Initialize priority queue (frontier) with initial node
+    # TODO: Initialize explored set
+    # TODO: Initialize counters for nodes_generated and nodes_expanded
+    
+    # TODO: Main A* loop:
+    #   - Pop node with lowest f_cost from frontier
+    #   - Check if goal state
+    #   - Add to explored set
+    #   - Generate successors
+    #   - For each successor:
+    #       - Calculate g_cost (parent g_cost + step cost)
+    #       - Calculate h_cost using heuristic
+    #       - If not explored and not in frontier (or found better path):
+    #           - Create new SearchNode
+    #           - Add to frontier
+    #           - Increment nodes_generated
+    
+    # TODO: If goal found, reconstruct path from goal to start
+    # TODO: Return (path, nodes_generated, nodes_expanded)
+    pass
+
+
+def reconstruct_path(node: SearchNode) -> List[State]:
+    """
+    Reconstruct path from start to goal by following parent pointers.
+    
+    Args:
+        node: Goal node
+    
+    Returns:
+        List of states from start to goal
+    """
+    # TODO: Follow parent pointers from goal to start
+    # TODO: Reverse to get start-to-goal order
+    pass
+
+
+# =============================================================================
+# OUTPUT FORMATTING
+# =============================================================================
+
+def print_results(path: List[State], nodes_generated: int, nodes_expanded: int, 
+                  heuristic_name: str):
+    """
+    Print search results in required format.
+    
+    Args:
+        path: Solution path (empty if no solution)
+        nodes_generated: Number of nodes generated
+        nodes_expanded: Number of nodes expanded
+        heuristic_name: Name of heuristic used
+    """
+    print(f"\n{'='*60}")
+    print(f"Results using {heuristic_name}")
+    print(f"{'='*60}")
+    
+    # TODO: Print path or "No solution exists"
+    # TODO: Print path length
+    # TODO: Print nodes generated
+    # TODO: Print nodes expanded
+    pass
+
+
+# =============================================================================
+# MAIN PROGRAM
+# =============================================================================
+
+def main():
+    """
+    Main program entry point.
+    Reads maze from command line argument and runs A* with each heuristic.
+    """
+    # TODO: Check command line arguments
+    if len(sys.argv) != 2:
+        print("Usage: python blockmaze.py <maze_file>")
+        sys.exit(1)
+    
+    maze_file = sys.argv[1]
+    
+    # TODO: Load maze
+    # maze = Maze(maze_file)
+    
+    # TODO: Get initial state
+    # initial_state = maze.get_start_state()
+    
+    # TODO: Define heuristics to test
+    heuristics = [
+        (heuristic_zero, "Zero Heuristic (Dijkstra)"),
+        (heuristic_manhattan, "Manhattan Distance"),
+        (heuristic_custom, "Custom Heuristic"),
+    ]
+    
+    # TODO: Run A* with each heuristic
+    # for heuristic_func, heuristic_name in heuristics:
+    #     path, nodes_gen, nodes_exp = astar_search(initial_state, maze, heuristic_func)
+    #     print_results(path, nodes_gen, nodes_exp, heuristic_name)
+    
+    pass
+
+
+if __name__ == "__main__":
+    main()
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+This response was kind of helpful, in some ways..? Elios and I had previously decided we were going to implement a Node class instead of a State class, just because we have been trained to do so in past courses and having a class for both State and Node seems really excessive. I also at some point spoke to Nano, who said it seems like we have too many classes as is. The searchNode class it gave us reiterated what we had already planned, although the __lt__ function was helpful. I guess I had assumed for some reason that the pqueue already knew we were using fCost to sort it. 
+
+12 February 2026
+
+I met with Prof. Fitzsimmons on Zoom today at 12 to discuss how we should implement the search algorithm. He suggested that I copy and paste the BFS search tree we already made in class and tweak it as needed to work for A*. This was great advice, especially when paired with the critical points and checks Claude had generated for me. That made it very easy to tweak BFS as needed. 
+
+The functions for output formatting and path traversal were also helpful. I knew that they were necessary components of the project, but didn't give much thought to them compared to the actual search function. So having the tips there was also nice. However, the program Claude generated allows the user to choose which heuristic to use, instead of using both in the same run. My conversation with Prof. Fitzsimmons revealed that the user does NOT get the choice. So I had to be cautious of that when following the steps. 
+
+I went back and changed the Dice function so that we didn't have to pass 6 parameters every single time. Instead, we will use the 7-opposite side logic to limit it to the north, top, and east sides that are passed. I also added the __eq__ and __hash__ function that way the dice faces can be compared to states in explored. The hash was deemed necessary by Claude for our use of Dice objects in sets and dictionary keys. I wouldn't have thought to do that... 
+
+15 February 2026
+
+After a weekend away Elios and I came back to work on the project together. He sent me a bunch of code for the main function, path traversal, heuristics, and search functions that filled in many of the gaps that I had left. Though our code had different syntax, it was the same logic we had spoken about on the previous Thursday. That made the differences easy to notice and resolve. We are pretty much done. Time to test.
+
+I got the following error and pasted it to Claude: 
+
+    Traceback (most recent call last):
+      File "/Users/alexchase/Downloads/school/compsci/blockmaze.py", line 287, in <module>
+        main()
+        ~~~~^^
+      File "/Users/alexchase/Downloads/school/compsci/blockmaze.py", line 279, in main
+        path, nodes_generated, nodes_expanded = find_path(initial_state, maze, heuristicManhattan)
+                                                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "/Users/alexchase/Downloads/school/compsci/blockmaze.py", line 184, in find_path
+        initial_node = Node(
+            state = initial_state,
+        ...<4 lines>...
+            fCost = heuristic(initial_state, maze) + 0
+        )
+    TypeError: Node.__init__() got an unexpected keyword argument 'fCost'. Did you mean 'gCost'?
+
+It explained that fCost shouldn't be passed through as a parameter in the Node initialization. Instead, it is calculated within the function itself and therefore doesn't need to be a parameter at all. So I fixed that. 
+
+I also had some trouble with the heuristics, since I didn't realize findpath() needed to take a specific heuristic name as a parameter for a while. It still gives warnings for what I ended up writing, but it works so I don't care. 
+
+16 February 2026
+
+I copied and pasted our finished code and asked Claude to make a README.md file. I've never made one before, so it looks like I should learn. Maybe I don't have to though because it did a pretty good job...
+
